@@ -1,11 +1,15 @@
-import _ from 'lodash';
+function getComponent () {
+  return import(/* webpackChunkName: "lodash" */ 'lodash').then(_ => {
+    var element = document.createElement('div')
+    var _ = _.default
 
-function component () {
-  let element = document.createElement('pre')
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ')
 
-  element.innerHTML = _.join(['Hello', 'Webpack'], ' ')
+    return element
 
-  return element
+  }).catch(error => 'An error occurred while loading the component')
 }
 
-document.body.appendChild(component())
+getComponent().then(component => {
+  document.body.appendChild(component)
+})
