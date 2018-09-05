@@ -1,5 +1,8 @@
 {
   "name": "webpack-demo",
+  "siteEffects":  [
+    "*.css"
+  ],
   "version": "1.0.0",
   "description": "一个基于webpack官网的练习而已",
   "private": true,
